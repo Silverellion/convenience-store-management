@@ -22,6 +22,36 @@
     transform: scale(1.2);
 }
 
+.category-btn {
+    background-color: transparent;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 14px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-block;
+    transition: ease-out 0.3s transform;
+}
+  
+.category-btn:hover,
+.category-btn:active {
+    background-color: rgb(208, 208, 208);
+    transform: scale(1.2);
+}
+
+.table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.table th:first-child,
+.table td:first-child {
+width: 80px;
+}
+
 .table th, .table td {
     padding: 10px;
     text-align: left;
