@@ -42,14 +42,8 @@
     transform: scale(1.2);
 }
 
-.table {
-    table-layout: fixed;
-    width: 100%;
-}
-
-.table th:first-child,
-.table td:first-child {
-width: 80px;
+.table-invoice tr td {
+    background-color: rgb(240, 240, 240);
 }
 
 .table th, .table td {
