@@ -1,0 +1,50 @@
+.search-box {
+    border-radius: 20px;
+    background-color: rgb(208, 208, 208);
+    padding: 5px 10px;
+    margin-right: 10px;
+    width: 200px;
+    border: none;
+}
+
+.general-btn {
+    background-color: rgb(67, 141, 184);
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin-left: 10px;
+    color: white;
+    border: none;
+    transition: ease-out 0.3s transform;
+}
+
+.general-btn:hover {
+    background-color: rgb(55, 112, 145);
+    transform: scale(1.2);
+}
+
+.table th, .table td {
+    padding: 10px;
+    text-align: left;
+    border: none;
+}
+
+.table-header th {
+    background-color: rgb(190, 190, 190);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.username-link {
+    color: blue;
+    text-decoration: none;
+}
+
+.general-icon {
+    margin: 0 5px;
+    transition: ease-out 0.3s transform;
+}
+
+.general-icon:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
