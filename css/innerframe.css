@@ -34,11 +34,6 @@
     padding-bottom: 15px;
 }
 
-.username-link {
-    color: blue;
-    text-decoration: none;
-}
-
 .general-icon {
     margin: 0 5px;
     transition: ease-out 0.3s transform;
