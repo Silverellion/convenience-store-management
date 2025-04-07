@@ -82,37 +82,19 @@
           
                 <div>
                     <table class="table align-middle">
-                        <tr class="table-header">
-                            <th scope="col"></th>
-                            <th scope="col">Accounts ID</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Password</th>
-                            <th scope="col">authority</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                        <tr>
-                            <td class="text-center"><input type="checkbox"></td>
-                            <td>#23668881</td>
-                            <td style="color: blue;">xxx</td>
-                            <td>**********</td>
-                            <td>employee</td>
-                            <td class = "d-flex">
-                                <span class="general-icon"><img src="../img/edit.svg" alt=""></span>
-                                <span class="general-icon"><img src="../img/delete.svg" alt=""></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center"><input type="checkbox"></td>
-                            <td>#23668881</td>
-                            <td style="color: blue;">xxx</td>
-                            <td>**********</td>
-                            <td>manager</td>
-                            <td class = "d-flex">
-                                <span class="general-icon"><img src="../img/edit.svg" alt=""></span>
-                                <span class="general-icon"><img src="../img/delete.svg" alt=""></span>
-                            </td>
-                        </tr>
-
+                        <thead>
+                            <tr class="table-header">
+                                <th scope="col"></th>
+                                <th scope="col">Employee ID</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Rows will be dynamically added here -->
+                        </tbody>
                     </table>
                 </div>
             </div>
