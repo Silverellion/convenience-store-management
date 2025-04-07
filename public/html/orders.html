@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/innerframe.css">
+        <title>Online Store</title>
+    </head>
+    <body class="min-vh-100">
+        <div class="container-fluid py-4">
+            <div class="bg-white p-4 rounded" style="box-shadow: 0 0 5px rgba(0,0,0,0.1);">
+                <div class="d-flex align-items-center mb-3">
+                    <div>
+                        <span style="font-weight: bolder;">Find Orders:</span>
+                        <div style="position: relative; display: inline-block;">
+                            <img src="../img/search.svg" alt="Search" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); width: 16px; height: 16px;">
+                            <input type="search" class="search-box ms-2" placeholder="Search" style="padding-left: 32px;">
+                          </div>
+                        <button class="general-btn">Remove</button>
+                    </div>
+                </div>
+          
+                <div>
+                    <table class="table align-middle">
+                        <tr class="table-header">
+                            <th scope="col"></th>
+                            <th scope="col">Orders ID</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        <tr>
+                            <td class="text-center"><input type="checkbox"></td>
+                            <td>#23668881</td>
+                            <td style="color: blue;">xxx</td>
+                            <td>DEC 30, 2024 05:18</td>
+                            <td>$999 (5 products)</td>
+                            <td class = "d-flex">
+                                <span class="general-icon"><img src="../img/delete.svg" alt=""></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

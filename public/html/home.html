@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/innerframe.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="sidebar col-2 p-0">
+                <div class="logo">
+                    <img src="../img/logo.svg" alt="" id="img-logo">
+                </div>
+                <ul class="nav flex-column" style="margin-left: 15px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-content="dashboard" data-title="Dashboard">
+                            <i class="nav-icon bi bi-layers"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html" data-content="products" data-title="Products">
+                            <i class="nav-icon bi bi-box-seam"></i>
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-content="orders" data-title="Orders">
+                            <i class="nav-icon bi bi-file-earmark-text"></i>
+                            Orders
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-content="accounts" data-title="Account">
+                            <i class="nav-icon bi bi-people"></i>
+                            Accounts
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-content="onboard" data-title="Onboard">
+                            <i class="nav-icon bi bi-play-circle"></i>
+                            Onboard
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Main Content -->
+            <div class="content col-10">
+                <!-- Phần tiêu đề thay đổi theo từng thẻ li -->
+                <div class="row">
+                    <div class="col-9">
+                        <h1 class="page-title">Dashboard</h1>
+                    </div>
+                    <div class="col-3">
+                        <div class="employee-box">
+                            <div class="employee-icon">
+                                <i class="bi bi-person"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Employees</h5>
+                                <small>27</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Content -->
+                <div class="content-section" id="dashboard-content">
+                    <!-- Thêm nội dung phần Dashboard vào đây -->
+                </div>
+
+                <!-- Products Content -->
+                <div class="content-section" id="products-content" style="display: none;">
+                    >
+                </div>
+
+                <!-- Orders Content -->
+                <div class="content-section" id="orders-content" style="display: none;">
+                    <!-- Thêm nội dung phần Orders vào đây -->
+                </div>
+
+                <!-- Accounts Content -->
+                <div class="content-section" id="accounts-content" style="display: none;">
+                    <!-- Thêm nội dung phần Account vào đây -->
+                </div>
+
+                <!-- Onboard Content -->
+                <div class="content-section" id="onboard-content" style="display: none;">
+                    <!-- Thêm nội dung phần Onboard vào đây -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/home.js"></script>
+
+</html>

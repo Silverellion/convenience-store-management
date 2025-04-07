@@ -1,0 +1,12 @@
+.master-container{
+    background-color: #438DB8;
+    min-height: 100vh;
+}
+
+.col-md-4 {
+    background-color: rgb(255, 255, 255, 0.25);
+}
+
+.title {
+    font-size: 80px;
+}

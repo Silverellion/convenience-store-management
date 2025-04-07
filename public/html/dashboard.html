@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .table {
+    margin-bottom: 0; 
+        }
+        .card-body {
+    padding-bottom: 0; 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <!-- Dòng đầu: Tổng quan -->
+        <div class="row text-center">
+            <div class="col-md-3"> <!-- Đảm bảo các col đều là col-md-3 -->
+                <div class="card d-flex align-items-center">
+                    <div class="card-body d-flex">
+                        <img src="../img/Total Sales.png" alt="Sales Icon" class="me-3" style="width: 50px; height: 50px;">
+                        <div>
+                            <h5 class="card-title">Total Sales</h5>
+                            <p class="card-text" style="text-align: left;">x.xxx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card d-flex align-items-center">
+                    <div class="card-body d-flex">
+                        <img src="../img/Products.png" alt="Sales Icon" class="me-3" style="width: 50px; height: 50px;">
+                        <div>
+                            <h5 class="card-title">Products</h5>
+                            <p class="card-text" style="text-align: left;">xxxxx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card d-flex align-items-center">
+                    <div class="card-body d-flex">
+                        <img src="../img/Order.png" alt="Sales Icon" class="me-3" style="width: 50px; height: 50px;">
+                        <div>
+                            <h5 class="card-title">Orders</h5>
+                            <p class="card-text" style="text-align: left;">x.xx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card d-flex align-items-center">
+                    <div class="card-body d-flex">
+                        <img src="../img/Employees.png" alt="Sales Icon" class="me-3" style="width: 50px; height: 50px;">
+                        <div>
+                            <h5 class="card-title">Employees</h5>
+                            <p class="card-text" style="text-align: left;">xx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Dòng hai: Các bảng -->
+        <div class="row my-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-start">
+                        <h5 class="card-title">Top Products</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Soda <span class="float-end">xxx</span></li>
+                            <li class="list-group-item">Cookies <span class="float-end">xxx</span></li>
+                            <li class="list-group-item">Condom <span class="float-end">xxx</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-start">
+                        <h5 class="card-title">Revenue</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Week 1 <span class="float-end">xxx</span></li>
+                            <li class="list-group-item">Week 2 <span class="float-end">xxx</span></li>
+                            <li class="list-group-item">Week 3 <span class="float-end">xxx</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Dòng ba: Employees và Recent Orders -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-start">
+                        <h5 class="card-title">Top Employees</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Employee A <span class="float-end">ID</span></li>
+                            <li class="list-group-item">Employee B <span class="float-end">ID</span></li>
+                            <li class="list-group-item">Employee C <span class="float-end">ID</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-start">
+                        <h5 class="card-title">Recent Orders</h5>
+                        <table class="table table-borderless p-0">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Customer</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#23668881</td>
+                                    <td>DEC 30,2024</td>
+                                    <td>Customer A</td>
+                                    <td>Completed</td>
+                                </tr>
+                                <tr>
+                                    <td>#23668882</td>
+                                    <td>DEC 31,2024</td>
+                                    <td>Customer B</td>
+                                    <td>Pending</td>
+                                </tr>
+                                <tr>
+                                    <td>#23668881</td>
+                                    <td>DEC 30,2024</td>
+                                    <td>Customer C</td>
+                                    <td>Pending</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

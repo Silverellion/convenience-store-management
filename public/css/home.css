@@ -1,0 +1,72 @@
+.sidebar {
+    background-color: #4a92b9;
+    min-height:100vh;
+}
+
+.logo {
+    padding: 20px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.nav-item {
+    margin: 8px 0;
+}
+
+.nav-link {
+    background-color: rgba(255, 255, 255, 0.575);
+    color: white !important;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.nav-link.active {
+    background-color: white;
+    color: #4a92b9 !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.account-header,
+.section-header {
+    color: #555;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.employee-box,
+.summary-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.employee-icon,
+.summary-icon {
+    background-color: #333;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.nav-icon {
+    margin-right: 12px;
+    opacity: 0.8;
+}
