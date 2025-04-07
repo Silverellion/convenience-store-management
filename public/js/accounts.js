@@ -6,7 +6,7 @@ function formatRole(role) {
     return role.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
 
-function showToast(message) {
+function showToast(message) { //This function is used to display message at the bottom right of the screen
     const toastElement = document.getElementById("toastMessage");
     const toastBody = toastElement.querySelector(".toast-body");
     toastBody.textContent = message;
@@ -121,5 +121,32 @@ function deleteAccount(accountId) {
         } else {
             alert("Failed to delete account.");
         }
+    });
+}
+
+function searchAccount() {
+    const searchTerm = document.getElementById("searchAccountText").value.toLowerCase();
+    const tableRows = document.querySelectorAll("#tableBody tr");
+    
+    tableRows.forEach(row => {
+        row.style.display = "";
+    });
+    
+    // If search term is empty, show all rows and exit
+    if (searchTerm === "") {
+        return;
+    }
+    
+    tableRows.forEach(row => {
+        const employeeId = row.cells[1].textContent.toLowerCase();
+        const username = row.cells[2].textContent.toLowerCase();
+        const role = row.cells[4].textContent.toLowerCase();
+        
+        const matchesSearch = 
+            employeeId.includes(searchTerm) || 
+            username.includes(searchTerm) || 
+            role.includes(searchTerm);
+        
+        row.style.display = matchesSearch ? "" : "none";
     });
 }

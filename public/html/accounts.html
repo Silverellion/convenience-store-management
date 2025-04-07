@@ -15,8 +15,9 @@
                         <span style="font-weight: bolder;">Find Accounts:</span>
                         <div style="position: relative; display: inline-block;">
                             <img src="../img/search.svg" alt="Search" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); width: 16px; height: 16px;">
-                            <input type="search" class="search-box ms-2" placeholder="Search" style="padding-left: 32px;">
+                            <input type="text" id="searchAccountText" class="search-box ms-2" placeholder="Search" style="padding-left: 32px;">
                         </div>
+                        <button class="general-btn" onclick="searchAccount()">Search Account</button>
                         <button class="general-btn" data-bs-toggle="modal" data-bs-target="#modalAccount">Add Account</button>
                     </div>
                 </div>
