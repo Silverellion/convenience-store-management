@@ -1,47 +1,40 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const addButton = document.getElementById("accountAddBtn");
-    addButton.addEventListener("click", async () => {
-        const accountId = document.getElementById("accountId").value.trim();
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value.trim();
-        const authority = document.getElementById("authority").value.trim();
+function addAccount() {
+    alert("LOADED");
+    const accountId = document.getElementById("accountId").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const authority = document.getElementById("authority").value.trim();
 
-        if (!accountId || !username || !password || !authority) {
-            alert("All fields are required!");
-            return;
-        }
+    console.log("Form values:", { accountId, username, password, authority });
 
-        const accountData = {
-            accountId,
-            username,
-            password,
-            authority,
-        };
+    if (!accountId || !username || !password || !authority) {
+        alert("All fields are required!");
+        return;
+    }
 
-        try {
-            // Send the data to the backend API
-            const response = await fetch("http://localhost:3000/api/accounts", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(accountData),
-            });
-
+    fetch("http://localhost:3000/api/accounts", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ accountId, username, password, authority }),
+    })
+        .then((response) => {
+            console.log("Response status:", response.status);
             if (response.ok) {
                 alert("Account added successfully!");
-                // clear the modal fields
                 document.getElementById("accountId").value = "";
                 document.getElementById("username").value = "";
                 document.getElementById("password").value = "";
                 document.getElementById("authority").value = "";
             } else {
-                const error = await response.json();
-                alert(`Error: ${error.message}`);
+                return response.json().then((error) => {
+                    alert(`Error: ${error.message}`);
+                });
             }
-        } catch (error) {
+        })
+        .catch((error) => {
             console.error("Error adding account:", error);
             alert("An error occurred while adding the account.");
-        }
-    });
-});
+        });
+}
