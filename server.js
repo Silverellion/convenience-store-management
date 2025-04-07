@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
-const accountRoutes = require('./routes/account.route');
+const accountRoutes = require('./routes/signin.route');
 const homeRoutes = require('./routes/home.route');
 
 // Kết nối MongoDB Atlas
@@ -31,7 +31,6 @@ app.get('/', (req, res) => {
 app.use(accountRoutes);
 // app.use(homeRoutes);
 
-// Server start
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`🚀 Server running: http://localhost:${PORT}`);

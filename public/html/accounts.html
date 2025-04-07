@@ -17,7 +17,7 @@
                             <img src="../img/search.svg" alt="Search" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); width: 16px; height: 16px;">
                             <input type="search" class="search-box ms-2" placeholder="Search" style="padding-left: 32px;">
                           </div>
-                        <button class="general-btn" data-bs-toggle="modal" data-bs-target="#modalAccount">Add Accounts</button>
+                        <button class="general-btn" data-bs-toggle="modal" data-bs-target="#modalAccount">Add Account</button>
                         <button class="general-btn">Remove</button>
                         <div
                             class="modal fade"
@@ -37,7 +37,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="modalTitleId">
-                                            Add product
+                                            Add Account
                                         </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button>
                                     </div>
@@ -45,52 +45,34 @@
                                         <div class="container">
                                             <form>
                                                 <div class="mb-3 row">
-                                                    <label for="" class="col-4 col-form-label fw-bold">Product ID:</label>
+                                                    <label for="" class="col-4 col-form-label fw-bold" id = "accountId">Account ID:</label>
                                                     <div class="col-8">
                                                         <input type="text" class="form-control"name=""id=""/>
                                                     </div>
                                                 </div>
                                                 <div class="mb-3 row">
-                                                    <label for="" class="col-4 col-form-label fw-bold">Product Name:</label>
+                                                    <label for="" class="col-4 col-form-label fw-bold" id = "username">Username:</label>
                                                     <div class="col-8">
                                                         <input type="text" class="form-control"name=""id=""/>
                                                     </div>
                                                 </div>
                                                 <div class="mb-3 row">
-                                                    <label for="" class="col-4 col-form-label fw-bold">Category:</label>
+                                                    <label for="" class="col-4 col-form-label fw-bold" id = "password">Password:</label>
                                                     <div class="col-8">
                                                         <input type="text" class="form-control"name=""id=""/>
                                                     </div>
                                                 </div>
                                                 <div class="mb-3 row">
-                                                    <label for="" class="col-4 col-form-label fw-bold">Product Price:</label>
+                                                    <label for="" class="col-4 col-form-label fw-bold" id = "authority">Authority:</label>
                                                     <div class="col-8">
                                                         <input type="text" class="form-control"name=""id=""/>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label for="" class="col-4 col-form-label fw-bold">Product Stock:</label>
-                                                    <div class="col-8">
-                                                        <input type="text" class="form-control"name=""id=""/>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label for="" class="col-4 col-form-label fw-bold">Supplier:</label>
-                                                    <div class="col-8">
-                                                        <input type="text" class="form-control"name=""id=""/>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label for="" class="col-6 col-form-label fw-bold">Expiration Date:</label>
-                                                    <div class="col-6">
-                                                        <input type="date" class="form-control"name=""id=""/>
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                     <div class="d-grid mx-3">
-                                        <button type="button" class="general-btn-big">Add</button>
+                                        <button type="button" class="general-btn-big" id = "accountAddBtn">Add</button>
                                     </div>
                                 </div>
                             </div>
