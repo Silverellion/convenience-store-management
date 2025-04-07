@@ -1,9 +1,9 @@
 function addAccount() {
     alert("LOADED");
-    const employeeId = document.getElementById("accountId").value.trim(); 
+    const employeeId = document.getElementById("employeeId").value.trim(); 
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
-    const role = document.getElementById("authority").value.trim(); 
+    const role = document.getElementById("role").value.trim(); 
 
     console.log("Form values:", { employeeId, username, password, role });
 
