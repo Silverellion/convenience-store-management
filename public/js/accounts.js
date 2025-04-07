@@ -1,13 +1,13 @@
 function addAccount() {
     alert("LOADED");
-    const accountId = document.getElementById("accountId").value.trim();
+    const employeeId = document.getElementById("accountId").value.trim(); 
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
-    const authority = document.getElementById("authority").value.trim();
+    const role = document.getElementById("authority").value.trim(); 
 
-    console.log("Form values:", { accountId, username, password, authority });
+    console.log("Form values:", { employeeId, username, password, role });
 
-    if (!accountId || !username || !password || !authority) {
+    if (!employeeId || !username || !password || !role) {
         alert("All fields are required!");
         return;
     }
@@ -17,7 +17,7 @@ function addAccount() {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ accountId, username, password, authority }),
+        body: JSON.stringify({ employeeId, username, password, role }),
     })
         .then((response) => {
             console.log("Response status:", response.status);

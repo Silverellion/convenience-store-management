@@ -1,5 +1,7 @@
 const Account = require('../models/account.model');
+
 exports.createAccount = async (req, res) => {
+    console.log("Request body:", req.body); 
     const { username, password, employeeId, role } = req.body;
 
     if (!username || !password || !employeeId || !role) {
@@ -14,7 +16,6 @@ exports.createAccount = async (req, res) => {
             role,
         });
 
-        // Save the document to MongoDB
         const savedAccount = await newAccount.save();
 
         res.status(201).json({
