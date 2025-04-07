@@ -47,6 +47,8 @@ function loadAccounts() {
                     deleteAccount(accountId);
                 });
             });
+            
+            updateEmployeeCount(accounts.length);
         });
 }
 
@@ -149,4 +151,11 @@ function searchAccount() {
         
         row.style.display = matchesSearch ? "" : "none";
     });
+}
+
+function updateEmployeeCount(count) {
+    const employeeCountElement = document.getElementById("employeeCount");
+    if (employeeCountElement) {
+        employeeCountElement.textContent = count;
+    }
 }
