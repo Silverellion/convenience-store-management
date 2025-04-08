@@ -1,7 +1,9 @@
 const Account = require('../models/account.model');
 
 exports.login = async (req, res) => {
-    const { username, password } = req.body;
+    const username = req.body.username;
+    const password = req.body.password;
+    
     console.log('Username:', username);
     console.log('Password:', password);
 
@@ -10,7 +12,19 @@ exports.login = async (req, res) => {
         console.log('Kết quả truy vấn:', user);
 
         if (user) {
-            return res.redirect('/html/home.html');
+            // Add the role to the localstorage
+            const html = `
+                <html>
+                <head>
+                    <script>
+                        localStorage.setItem('userRole', '${user.role}');
+                        localStorage.setItem('username', '${username}');
+                        window.location.href = '/html/home.html';
+                    </script>
+                </head>
+                </html>
+            `;
+            return res.send(html);
         } else {
             return res.status(401).send('Invalid username or password');
         }
