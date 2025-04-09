@@ -30,5 +30,7 @@ $(document).ready(function () {
     loadHTML('products-content', 'products.html');
     loadHTML('orders-content', 'orders.html');
     loadHTML('accounts-content', 'accounts.html');
-    loadHTML('onboard-content', 'onboard.html');
+    loadHTML('onboard-content', 'onboard.html', () => {
+        fetchAndRenderProducts(); // dùng lại chung 1 file products.js
+    });    
 });

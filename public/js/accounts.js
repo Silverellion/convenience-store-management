@@ -18,6 +18,7 @@ function loadAccounts() {
     fetch("http://localhost:3000/api/accounts")
         .then(response => response.json())
         .then(accounts => {
+            console.log('fetch account', accounts);
             const tableBody = document.getElementById("tableBody");
             tableBody.innerHTML = "";
             accounts.forEach(account => {

@@ -1,85 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/innerframe.css">
-        <link rel="stylesheet" href="../css/onboard.css">
-        <title>Online Store</title>
-    </head>
-    <body class="min-vh-100">
-        <div class="container-fluid py-4">
-            <div class="bg-white p-4 rounded separator" style="box-shadow: 0 0 5px rgba(0,0,0,0.1);">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/innerframe.css">
+    <link rel="stylesheet" href="../css/onboard.css">
+    <title>Online Store</title>
+</head>
+
+<body class="min-vh-100">
+    <div class="container-fluid py-4">
+        <div class="bg-white p-4 rounded separator" style="box-shadow: 0 0 5px rgba(0,0,0,0.1);">
+            <div>
+                <div style="border-bottom: 2px solid black; padding-bottom: 10px;">
+                    <span style="font-weight: bolder;">Find Products:</span>
+                    <div style="position: relative; display: inline-block;">
+                        <img src="../img/search.svg" alt="Search"
+                            style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); width: 16px; height: 16px;">
+                        <input type="search" id="searchOnboardText" class="search-box ms-2" placeholder="Search"
+                            style="padding-left: 32px; width: 180px;">
+                    </div>
+                    <button class="general-btn" onclick="searchOnboard()">Search Product</button>
+                    <button id="btn-add-selected" class="general-btn">Add</button>
+                </div>
+                <div id="categoryOnboard" style="flex: 2; margin-left: 10px; display: flex; flex-wrap: wrap; gap: 5px;">
+                    <!-- tao category -->
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                </div>
                 <div>
-                    <div style="border-bottom: 2px solid black; padding-bottom: 10px;">
-                        <span style="font-weight: bolder;">Find Products:</span>
-                        <div style="position: relative; display: inline-block;">
-                            <img src="../img/search.svg" alt="Search" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); width: 16px; height: 16px;">
-                            <input type="search" class="search-box ms-2" placeholder="Search" style="padding-left: 32px; width: 180px;">
-                        </div>
-                    </div>
-                    <div style="margin-left: 10px; display: flex; flex-wrap: wrap; gap: 5px;">
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                    </div>
-                    <div>
-                        <table class="table align-middle">
+                    <table class="table align-middle">
+                        <thead>
                             <tr class="table-header">
                                 <th scope="col"></th>
                                 <th scope="col">Product ID</th>
                                 <th scope="col">Product name</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Amount</th>
+                                <th scope="col">Action</th>
                             </tr>
-                            <tr>
-                                <td class="text-center"><input type="checkbox"></td>
-                                <td>#23668881</td>
-                                <td style="color: blue;">xxx</td>
-                                <td>DEC 30, 2024 05:18</td>
-                                <td>300</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div style="background-color: rgb(240, 240, 240); padding-left: 10px; padding-right: 10px;">
-                    <div style="font-weight: bolder; padding-top: 10px; padding-bottom: 10px; border-bottom: 2px solid black;">
-                        Order Summary
-                    </div>
-                    <table class="table table-invoice align-middle" style="border-bottom: 2px solid black;">
-                        <tr>
-                            <td style="color: blue;">xxxx xxx xxxx</td>
-                            <td>$10</td>
-                            <td>0</td>
-                            <td class="d-flex">
-                                <span class="general-icon"><img src="../img/delete.svg" alt=""></span>
-                            </td>
-                        </tr>
+                        </thead>
+                        <tbody id="tableBodyOnboard">
+                            <!-- tao san pham -->
+                        </tbody>
                     </table>
-                    <div class="d-flex justify-content-between mb-3">
-                        <div style="font-weight: bold;">Total</div>
-                        <div class="ml-auto" style="font-weight: bold;">120.000 VND</div>
-                    </div>
-                    <div class="d-flex justify-content-between mb-3">
-                        <div style="font-weight: bold;">Amount</div>
-                        <div class="ml-auto" style="font-weight: bold;">12</div>
-                    </div>
-                    <div class="d-flex justify-content-between mb-3">
-                        <div style="font-weight: bold;">Date</div>
-                        <div class="ml-auto">DEC 30, 2024 05:18</div>
-                    </div>
-                    <div class="d-grid">
-                        <button class = "general-btn-big">Check Out</button>
-                    </div>
+                </div>
+            </div>
+            <div style="background-color: rgb(240, 240, 240); padding-left: 10px; padding-right: 10px;">
+                <div
+                    style="font-weight: bolder; padding-top: 10px; padding-bottom: 10px; border-bottom: 2px solid black;">
+                    Order Summary
+                </div>
+                <table class="table table-invoice align-middle" style="border-bottom: 2px solid black;">
+                    <tr>
+                        <td style="color: blue;">xxxx xxx xxxx</td>
+                        <td>$10</td>
+                        <td>0</td>
+                        <td class="d-flex">
+                            <span class="general-icon"><img src="../img/delete.svg" alt=""></span>
+                        </td>
+                    </tr>
+                </table>
+                <div class="d-flex justify-content-between mb-3">
+                    <div style="font-weight: bold;">Total</div>
+                    <div class="ml-auto" style="font-weight: bold;">120.000 VND</div>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <div style="font-weight: bold;">Amount</div>
+                    <div class="ml-auto" style="font-weight: bold;">12</div>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <div style="font-weight: bold;">Date</div>
+                    <div class="ml-auto">DEC 30, 2024 05:18</div>
+                </div>
+                <div class="d-grid">
+                    <button class="general-btn-big">Check Out</button>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

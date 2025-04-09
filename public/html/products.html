@@ -1,140 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../lib/bootstrap.css">
-        <link rel="stylesheet" href="../css/innerframe.css">
-        <title>Online Store</title>
-    </head>
-    <body class="min-vh-100">
-        <div class="container-fluid py-4">
-            <div class="bg-white p-4 rounded" style="box-shadow: 0 0 5px rgba(0,0,0,0.1);">
-                <div class="d-flex align-items-center mb-3 justify-content-between">
-                    <div>
-                        <span style="font-weight: bolder;">Find Products:</span>
-                        <div style="position: relative; display: inline-block;">
-                            <img src="../img/search.svg" alt="Search" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); width: 16px; height: 16px;">
-                            <input type="search" class="search-box ms-2" placeholder="Search" style="padding-left: 32px; width: 180px;">
-                        </div>
-                        <button class="general-btn" data-bs-toggle="modal" data-bs-target="#modalProducts">Add Products</button>
-                        <button class="general-btn">Remove</button>
-                        <div
-                            class="modal fade"
-                            id="modalProducts"
-                            tabindex="-1"
-                            data-bs-backdrop="static"
-                            data-bs-keyboard="false"
-                            
-                            role="dialog"
-                            aria-labelledby="modalTitleId"
-                            aria-hidden="true"
-                        >
-                            <div
-                                class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md"
-                                role="document"
-                            >
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="modalTitleId">
-                                            Add product
-                                        </h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../lib/bootstrap.css">
+    <link rel="stylesheet" href="../css/innerframe.css">
+    <title>Online Store</title>
+</head>
+
+<body class="min-vh-100">
+    <div class="container-fluid py-4">
+        <div class="bg-white p-4 rounded" style="box-shadow: 0 0 5px rgba(0,0,0,0.1);">
+            <div class="d-flex align-items-center mb-3 justify-content-between">
+                <div>
+                    <span style="font-weight: bolder;">Find Products:</span>
+                    <div style="position: relative; display: inline-block;">
+                        <img src="../img/search.svg" alt="Search"
+                            style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); width: 16px; height: 16px;">
+                        <input type="search" id="searchProductText" class="search-box ms-2" placeholder="Search"
+                            style="padding-left: 32px; width: 180px;">
+                    </div>
+                    <button class="general-btn" onclick="searchProduct()">Search Product</button>
+                    <button class="general-btn" data-bs-toggle="modal" data-bs-target="#modalProducts">Add
+                        Products</button>
+                    <!-- modal product -->
+                    <div class="modal fade" id="modalProducts" tabindex="-1" data-bs-backdrop="static"
+                        data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md"
+                            role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitleId">
+                                        Add product
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <form>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-4 col-form-label fw-bold">Product ID:</label>
+                                                <div class="col-8">
+                                                    <input type="text" class="form-control" name="productId"
+                                                        id="productId" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-4 col-form-label fw-bold">Product Name:</label>
+                                                <div class="col-8">
+                                                    <input type="text" class="form-control" name="name" id="name" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-4 col-form-label fw-bold">Category:</label>
+                                                <div class="col-8">
+                                                    <select id="categoryForm" class="form-select">
+                                                        <option value="Beverage">Beverage</option>
+                                                        <option value="Snack">Snack</option>
+                                                        <option value="Dairy">Dairy</option>
+                                                        <option value="Personal Care">Personal Care</option>
+                                                        <option value="Household">Household</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-4 col-form-label fw-bold">Product
+                                                    Price:</label>
+                                                <div class="col-8">
+                                                    <input type="text" class="form-control" name="price" id="price" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-4 col-form-label fw-bold">Product
+                                                    Stock:</label>
+                                                <div class="col-8">
+                                                    <input type="text" class="form-control" name="stock" id="stock" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-4 col-form-label fw-bold">Supplier:</label>
+                                                <div class="col-8">
+                                                    <input type="text" class="form-control" name="supplier"
+                                                        id="supplier" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-6 col-form-label fw-bold">Expiration
+                                                    Date:</label>
+                                                <div class="col-6">
+                                                    <input type="date" class="form-control" name="expirationDate"
+                                                        id="expirationDate" />
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="container">
-                                            <form>
-                                                <div class="mb-3 row">
-                                                    <label for="" class="col-4 col-form-label fw-bold">Product ID:</label>
-                                                    <div class="col-8">
-                                                        <input type="text" class="form-control"name=""id=""/>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label for="" class="col-4 col-form-label fw-bold">Product Name:</label>
-                                                    <div class="col-8">
-                                                        <input type="text" class="form-control"name=""id=""/>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label for="" class="col-4 col-form-label fw-bold">Category:</label>
-                                                    <div class="col-8">
-                                                        <input type="text" class="form-control"name=""id=""/>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label for="" class="col-4 col-form-label fw-bold">Product Price:</label>
-                                                    <div class="col-8">
-                                                        <input type="text" class="form-control"name=""id=""/>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label for="" class="col-4 col-form-label fw-bold">Product Stock:</label>
-                                                    <div class="col-8">
-                                                        <input type="text" class="form-control"name=""id=""/>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label for="" class="col-4 col-form-label fw-bold">Supplier:</label>
-                                                    <div class="col-8">
-                                                        <input type="text" class="form-control"name=""id=""/>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row">
-                                                    <label for="" class="col-6 col-form-label fw-bold">Expiration Date:</label>
-                                                    <div class="col-6">
-                                                        <input type="date" class="form-control"name=""id=""/>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="d-grid mx-3">
-                                        <button type="button" class="general-btn-big">Add</button>
-                                    </div>
+                                </div>
+                                <div class="d-grid mx-3">
+                                    <button type="button" class="general-btn-big" onclick="addProduct()">Add</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div style="flex: 2; margin-left: 10px; display: flex; flex-wrap: wrap; gap: 5px;; max-width: 40%;">
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
-                        <button class="category-btn">category</button>
+
+                    <!-- modal edit product -->
+                    <div class="modal fade" id="modalProductsEdit" tabindex="-1" data-bs-backdrop="static"
+                        data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Edit Product</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <form>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-4 col-form-label fw-bold">Product ID:</label>
+                                                <div class="col-8">
+                                                    <input type="text" class="form-control" name="editProductId"
+                                                        id="editProductId" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-4 col-form-label fw-bold">Product Name:</label>
+                                                <div class="col-8">
+                                                    <input type="text" class="form-control" name="editName"
+                                                        id="editName" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-4 col-form-label fw-bold">Category:</label>
+                                                <div class="col-8">
+                                                    <select id="editCategory" class="form-select">
+                                                        <option value="Beverage">Beverage</option>
+                                                        <option value="Snack">Snack</option>
+                                                        <option value="Dairy">Dairy</option>
+                                                        <option value="Personal Care">Personal Care</option>
+                                                        <option value="Household">Household</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-4 col-form-label fw-bold">Product
+                                                    Price:</label>
+                                                <div class="col-8">
+                                                    <input type="text" class="form-control" name="editPrice"
+                                                        id="editPrice" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-4 col-form-label fw-bold">Product
+                                                    Stock:</label>
+                                                <div class="col-8">
+                                                    <input type="text" class="form-control" name="editStock"
+                                                        id="editStock" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-4 col-form-label fw-bold">Supplier:</label>
+                                                <div class="col-8">
+                                                    <input type="text" class="form-control" name="editSupplier"
+                                                        id="editSupplier" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="" class="col-6 col-form-label fw-bold">Expiration
+                                                    Date:</label>
+                                                <div class="col-6">
+                                                    <input type="date" class="form-control" name="editExpirationDate"
+                                                        id="editExpirationDate" />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="saveEditBtn">Save</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-          
-                <div>
-                    <table class="table align-middle">
-                        <tr class="table-header">
-                            <th scope="col"></th>
-                            <th scope="col">Product ID</th>
-                            <th scope="col">Product name</th>
-                            <th scope="col">Expiration Date</th>
-                            <th scope="col">Stock</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                        <tr>
-                            <td class="text-center"><input type="checkbox"></td>
-                            <td>#23668881</td>
-                            <td style="color: blue;">xxx</td>
-                            <td>DEC 30, 2024 05:18</td>
-                            <td>300</td>
-                            <td class = "d-flex">
-                                <span class="general-icon"><img src="../img/edit.svg" alt=""></span>
-                                <span class="general-icon"><img src="../img/delete.svg" alt=""></span>
-                            </td>
-                        </tr>
-                    </table>
+
+
+
+                <div id="category"
+                    style="flex: 2; margin-left: 10px; display: flex; flex-wrap: wrap; gap: 5px;; max-width: 40%;">
+                    <!-- tao category -->
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
+                    <button class="category-btn">category</button>
                 </div>
             </div>
+            <div>
+                <table class="table align-middle">
+                    <thead>
+                        <tr class="table-header">
+                            <th scope="col"></th>
+                            <th scope="col">Products ID</th>
+                            <th scope="col">Name Products</th>
+                            <th scope="col">Date exp</th>
+                            <th scope="col">Stocks</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBodyProducts">
+                        <!-- tao san pham -->
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </body>
-    <script src="../lib/bootstrap.bundle.js"></script>
+    </div>
+</body>
+<script src="../lib/bootstrap.bundle.js"></script>
+
 </html>
