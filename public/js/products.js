@@ -2,6 +2,14 @@ let allProducts = []; // lưu toàn bộ sản phẩm để lọc lại
 
 document.addEventListener('DOMContentLoaded', fetchAndRenderProducts);
 
+function showToast(message) { //This function is used to display message at the bottom right of the screen
+    const toastElement = document.getElementById("toastMessage");
+    const toastBody = toastElement.querySelector(".toast-body");
+    toastBody.textContent = message;
+    const toast = new bootstrap.Toast(toastElement);
+    toast.show();
+}
+
 async function fetchAndRenderProducts() {
     try {
         const res = await fetch('http://localhost:3000/api/products');
@@ -155,9 +163,9 @@ function addProduct() {
                 const modal = bootstrap.Modal.getInstance(document.getElementById("modalProducts"));
                 modal.hide();
                 fetchAndRenderProducts();
-                alert('add success!');
+                showToast('Product added successfully!');
             } else {
-                alert("Failed to add product.");
+                showToast("Failed to add product.");
             }
         });
 }
@@ -200,9 +208,9 @@ function saveEditedProduct(productId) {
             const editModal = bootstrap.Modal.getInstance(document.getElementById("modalProductsEdit"));
             editModal.hide();
             fetchAndRenderProducts();
-            alert('update success!');
+            showToast('Product updated successfully!');
         } else {
-            alert("Failed to update product.");
+            showToast("Failed to update product.");
         }
     });
 }
@@ -218,9 +226,9 @@ function deleteProducts(productId) {
         .then(response => {
             if (response.ok) {
                 fetchAndRenderProducts();
-                alert('Delete product successfully!');
+                showToast('Product deleted successfully!');
             } else {
-                alert('fail to delete');
+                showToast('Failed to delete product');
             }
         });
 }
