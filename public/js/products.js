@@ -157,7 +157,7 @@ function addProduct() {
                 fetchAndRenderProducts();
                 alert('add success!');
             } else {
-                alert("Failed to add account.");
+                alert("Failed to add product.");
             }
         });
 }
@@ -209,7 +209,7 @@ function saveEditedProduct(productId) {
 
 //xoa san pham
 function deleteProducts(productId) {
-    if (!confirm(`Are you sure you want to delete this account? ${productId}`)) {
+    if (!confirm(`Are you sure you want to remove this product?`)) {
         return;
     }
     fetch(`http://localhost:3000/api/products/${productId}`, {
@@ -227,7 +227,7 @@ function deleteProducts(productId) {
 
 // search sản phẩm (theo mã code của Tâm và sửa lại phù hợp với products)
 function searchProduct() {
-    const searchTerm = document.getElementById("searchProductText").value.toLowerCase().trim();
+    const searchTerm = document.getElementById("searchProductText").value.toLowerCase();
     const tableRows = document.querySelectorAll("#tableBodyProducts tr");
 
     // Hiển thị lại tất cả các dòng trước khi tìm
