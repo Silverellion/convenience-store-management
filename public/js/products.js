@@ -103,8 +103,25 @@ function renderOnboard(products) {
       <td class="d-flex align-items-center">
         <input type="number" class="form-control form-control-sm mx-2 quantity-input" data-id="${product._id}" value="1" min="1" style="width: 60px; text-align: center;">
       </td>
+      <td>
+        <button class="btn btn-sm btn-primary add-to-invoice-btn" style="border-radius: 10px" data-id="${product._id}">Add</button>
+      </td>
     `;
         tableBody.appendChild(row);
+    });
+
+    // Bắt sự kiện cho tất cả nút Add
+    document.querySelectorAll('.add-to-invoice-btn').forEach(button => {
+        button.addEventListener('click', event => {
+            const row = event.target.closest('tr');
+            const productId = row.cells[1].textContent;
+            const name = row.cells[2].textContent;
+            const price = parseFloat(row.cells[3].textContent);
+            const quantity = parseInt(row.querySelector('.quantity-input').value);
+            const total = price * quantity;
+
+            addToInvoice(productId, name, price, quantity, total);
+        });
     });
 }
 
@@ -269,5 +286,9 @@ function updateProductCount(numbers) {
         productNumber.textContent = numbers;
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchTopProducts();
+});
 
 

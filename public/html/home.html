@@ -99,5 +99,12 @@
 <script src="../js/orders.js"></script>
 <script src="../js/onboard.js"></script>
 <script src="../js/roleManager.js"></script>
-<script src="../js/dashboard.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        if (typeof loadAccounts === 'function') loadAccounts();
+        if (typeof fetchTopProducts === 'function') fetchTopProducts();
+      }, 500);
+    });
+</script>
 </html>

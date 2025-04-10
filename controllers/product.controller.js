@@ -5,6 +5,7 @@ exports.createProducts = async (req, res) => {
     console.log("Request body:", req.body);
     const { productId, name, category, price, stock, supplier, expirationDate } = req.body;
 
+
     if (!productId || !name || !category || !price || !stock || !supplier || !expirationDate) {
         return res.status(400).json({ message: 'All fields are required.' });
     }

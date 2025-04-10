@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 
 const itemSchema = new mongoose.Schema({
-  product: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Products',  // Tên model export từ products
-    required: true
-  },
+  productId: { type: String, required: true },
+  productName: { type: String, required: true },
   quantity: { type: Number, required: true },
+  unitPrice: { type: Number, required: true },
   totalPrice: { type: Number, required: true }
 }, { _id: false });
 

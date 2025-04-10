@@ -22,7 +22,6 @@
                             style="padding-left: 32px; width: 180px;">
                     </div>
                     <button class="general-btn" onclick="searchOnboard()">Search Product</button>
-                    <button id="btn-add-selected" class="general-btn">Add</button>
                 </div>
                 <div id="categoryOnboard" style="flex: 2; margin-left: 10px; display: flex; flex-wrap: wrap; gap: 5px;">
                     <!-- tao category -->
@@ -47,6 +46,7 @@
                                 <th scope="col">Price</th>
                                 <th scope="col">Amount</th>
                                 <th scope="col">Action</th>
+                                <th scope="col">Add</th>
                             </tr>
                         </thead>
                         <tbody id="tableBodyOnboard">
@@ -61,29 +61,52 @@
                     Order Summary
                 </div>
                 <table class="table table-invoice align-middle" style="border-bottom: 2px solid black;">
-                    <tr>
-                        <td style="color: blue;">xxxx xxx xxxx</td>
-                        <td>$10</td>
-                        <td>0</td>
-                        <td class="d-flex">
-                            <span class="general-icon"><img src="../img/delete.svg" alt=""></span>
-                        </td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceTableBody"></tbody>
                 </table>
+                <div class="d-flex flex-column justify-content-between mb-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div style="font-weight: bold;">Employee ID</div>
+                        <input id="employeeIdInput" type="text" placeholder="Mã nhân viên" style="width: 150px;">
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <div style="font-weight: bold;">Employee Name</div>
+                        <input id="employeeNameInput" type="text" placeholder="Tên nhân viên" style="width: 150px;">
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <div style="font-weight: bold;">Customer Paid</div>
+                        <input id="customerPaidInput" type="number" placeholder="Nhập số tiền khách đưa"
+                            style="width: 120px;">
+                    </div>
+
+                </div>
+
                 <div class="d-flex justify-content-between mb-3">
                     <div style="font-weight: bold;">Total</div>
-                    <div class="ml-auto" style="font-weight: bold;">120.000 VND</div>
+                    <span id="invoiceTotal">0 VND</span>
                 </div>
                 <div class="d-flex justify-content-between mb-3">
                     <div style="font-weight: bold;">Amount</div>
-                    <div class="ml-auto" style="font-weight: bold;">12</div>
+                    <span id="invoiceTotalAction">0</span>
                 </div>
                 <div class="d-flex justify-content-between mb-3">
                     <div style="font-weight: bold;">Date</div>
-                    <div class="ml-auto">DEC 30, 2024 05:18</div>
+                    <span id="invoiceDate"></span>
                 </div>
                 <div class="d-grid">
-                    <button class="general-btn-big">Check Out</button>
+                    <button class="general-btn-big" id="checkoutBtn" onclick="Checkout()">Check Out</button>
+
                 </div>
             </div>
         </div>
