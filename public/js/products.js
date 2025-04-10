@@ -20,7 +20,7 @@ async function fetchAndRenderProducts() {
 }
 
 function showToast(message) { //This function is used to display message at the bottom right of the screen
-    const toastElement = document.getElementById("toastMessage");
+    const toastElement = document.getElementById("toastMessageProduct");
     const toastBody = toastElement.querySelector(".toast-body");
     toastBody.textContent = message;
     const toast = new bootstrap.Toast(toastElement);

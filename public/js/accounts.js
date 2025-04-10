@@ -7,7 +7,7 @@ function formatRole(role) {
 }
 
 function showToast(message) { //This function is used to display message at the bottom right of the screen
-    const toastElement = document.getElementById("toastMessage");
+    const toastElement = document.getElementById("toastMessageAccount");
     const toastBody = toastElement.querySelector(".toast-body");
     toastBody.textContent = message;
     const toast = new bootstrap.Toast(toastElement);
@@ -60,13 +60,31 @@ function addAccount() {
     const role = document.getElementById("role").value.trim();
     if (!employeeId || !username || !password || !role) return alert("All fields are required!");
     
-    fetch("http://localhost:3000/api/accounts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ employeeId, username, password, role }),
-    })
-    .then(response => {
-        if (response.ok) {
+    // First check if employee exists
+    fetch(`http://localhost:3000/api/employees/check/${employeeId}`)
+        .then(response => {
+            if (!response.ok) {
+                if (response.status === 404) {
+                    throw new Error("Employee ID does not exist. Please check the ID and try again.");
+                }
+                throw new Error("Error checking employee.");
+            }
+            return response.json();
+        })
+        .then(data => {
+            return fetch("http://localhost:3000/api/accounts", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ employeeId, username, password, role }),
+            });
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.message || "Failed to add account");
+                });
+            }
+            
             document.getElementById("employeeId").value = "";
             document.getElementById("username").value = "";
             document.getElementById("password").value = "";
@@ -75,15 +93,10 @@ function addAccount() {
             modal.hide();
             loadAccounts();
             showToast("Account added successfully!");
-            return;
-        } 
-        return response.json().then(data => {
-            throw new Error(data.message || "Failed to add account");
+        })
+        .catch(error => {
+            alert(error.message);
         });
-    })
-    .catch(error => {
-        alert(error.message);
-    });
 }
 
 function showEditModal(accountId) {
@@ -106,22 +119,40 @@ function saveEditedAccount(accountId) {
     const password = document.getElementById("editPassword").value.trim();
     const role = document.getElementById("editRole").value.trim();
     if (!employeeId || !username || !role) return alert("Employee ID, Username, and Role are required!");
-    fetch(`http://localhost:3000/api/accounts/${accountId}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ employeeId, username, password, role }),
-    }).then(response => {
-        if (response.ok) {
+    
+    // First check if employee exists
+    fetch(`http://localhost:3000/api/employees/check/${employeeId}`)
+        .then(response => {
+            if (!response.ok) {
+                if (response.status === 404) {
+                    throw new Error("Employee ID does not exist. Please check the ID and try again.");
+                }
+                throw new Error("Error checking employee.");
+            }
+            return response.json();
+        })
+        .then(data => {
+            return fetch(`http://localhost:3000/api/accounts/${accountId}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ employeeId, username, password, role }),
+            });
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.message || "Failed to update account");
+                });
+            }
             const editModal = bootstrap.Modal.getInstance(document.getElementById("modalAccountEdit"));
             editModal.hide();
             loadAccounts();
             showToast("Account updated successfully!");
-        } else {
-            alert("Failed to update account.");
-        }
-    });
+        })
+        .catch(error => {
+            alert(error.message);
+        });
 }
-
 function deleteAccount(accountId) {
     if (!confirm("Are you sure you want to delete this account?")) return;
     fetch(`http://localhost:3000/api/accounts/${accountId}`, { method: "DELETE" }).then(response => {
