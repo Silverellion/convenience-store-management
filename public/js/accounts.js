@@ -59,11 +59,13 @@ function addAccount() {
     const password = document.getElementById("password").value.trim();
     const role = document.getElementById("role").value.trim();
     if (!employeeId || !username || !password || !role) return alert("All fields are required!");
+    
     fetch("http://localhost:3000/api/accounts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ employeeId, username, password, role }),
-    }).then(response => {
+    })
+    .then(response => {
         if (response.ok) {
             document.getElementById("employeeId").value = "";
             document.getElementById("username").value = "";
@@ -73,9 +75,14 @@ function addAccount() {
             modal.hide();
             loadAccounts();
             showToast("Account added successfully!");
-        } else {
-            alert("Failed to add account.");
-        }
+            return;
+        } 
+        return response.json().then(data => {
+            throw new Error(data.message || "Failed to add account");
+        });
+    })
+    .catch(error => {
+        alert(error.message);
     });
 }
 

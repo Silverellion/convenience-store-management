@@ -7,8 +7,9 @@ const app = express();
 const signinRoutes = require('./routes/signin.route');
 const accountRoutes = require('./routes/account.route');
 const homeRoutes = require('./routes/home.route');
-const productRoutes = require('./routes/product.route')
+const productRoutes = require('./routes/product.route');
 const orderRoutes = require('./routes/order.routes');
+const employeeRoutes = require('./routes/employee.route');
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {})
@@ -34,8 +35,7 @@ app.use(homeRoutes); // Handles /home
 app.use('/api', accountRoutes); // Handles /api/accounts
 app.use('/api', productRoutes); // Handles /api/products
 app.use('/api', orderRoutes); // Handles /api/orders
-
-
+app.use('/api', employeeRoutes); // Handles /api/employees
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
