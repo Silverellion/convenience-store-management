@@ -71,15 +71,27 @@
         </div>
         <!-- Dòng hai: Các bảng -->
         <div class="row my-4">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body text-start">
-                        <h5 class="card-title">Top Products</h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Soda <span class="float-end">xxx</span></li>
-                            <li class="list-group-item">Cookies <span class="float-end">xxx</span></li>
-                            <li class="list-group-item">Condom <span class="float-end">xxx</span></li>
-                        </ul>
+            <div class="col-md-6 d-flex flex-column gap-4">
+                <div>
+                    <div class="card">
+                        <div class="card-body text-start">
+                            <h5 class="card-title">Top Products</h5>
+                            <ul class="list-group list-group-flush" id="top-products-list">
+                                <li class="list-group-item">Loading top products... <span class="float-end"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="card">
+                        <div class="card-body text-start">
+                            <h5 class="card-title">Top Employees</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Employee A <span class="float-end">ID</span></li>
+                                <li class="list-group-item">Employee B <span class="float-end">ID</span></li>
+                                <li class="list-group-item">Employee C <span class="float-end">ID</span></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,22 +106,6 @@
                 </div>
             </div>
         </div>
-        <!-- Dòng ba: Employees và Recent Orders -->
-        <div class="row mb-4">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body text-start">
-                        <h5 class="card-title">Top Employees</h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Employee A <span class="float-end">ID</span></li>
-                            <li class="list-group-item">Employee B <span class="float-end">ID</span></li>
-                            <li class="list-group-item">Employee C <span class="float-end">ID</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-
 </body>
 </html>

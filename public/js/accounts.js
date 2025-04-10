@@ -48,7 +48,7 @@ function loadAccounts() {
                     deleteAccount(accountId);
                 });
             });
-            
+
             updateEmployeeCount(accounts.length);
         });
 }
@@ -59,7 +59,7 @@ function addAccount() {
     const password = document.getElementById("password").value.trim();
     const role = document.getElementById("role").value.trim();
     if (!employeeId || !username || !password || !role) return alert("All fields are required!");
-    
+
     // First check if employee exists
     fetch(`http://localhost:3000/api/employees/check/${employeeId}`)
         .then(response => {
@@ -84,7 +84,7 @@ function addAccount() {
                     throw new Error(data.message || "Failed to add account");
                 });
             }
-            
+
             document.getElementById("employeeId").value = "";
             document.getElementById("username").value = "";
             document.getElementById("password").value = "";
@@ -150,26 +150,26 @@ function deleteAccount(accountId) {
 function searchAccount() {
     const searchTerm = document.getElementById("searchAccountText").value.toLowerCase();
     const tableRows = document.querySelectorAll("#tableBody tr");
-    
+
     tableRows.forEach(row => {
         row.style.display = "";
     });
-    
+
     // If search term is empty, show all rows and exit
     if (searchTerm === "") {
         return;
     }
-    
+
     tableRows.forEach(row => {
         const employeeId = row.cells[1].textContent.toLowerCase();
         const username = row.cells[2].textContent.toLowerCase();
         const role = row.cells[4].textContent.toLowerCase();
-        
-        const matchesSearch = 
-            employeeId.includes(searchTerm) || 
-            username.includes(searchTerm) || 
+
+        const matchesSearch =
+            employeeId.includes(searchTerm) ||
+            username.includes(searchTerm) ||
             role.includes(searchTerm);
-        
+
         row.style.display = matchesSearch ? "" : "none";
     });
 }
@@ -179,4 +179,4 @@ function updateEmployeeCount(count) {
     if (employeeCountElement) {
         employeeCountElement.textContent = count;
     }
-}
+};

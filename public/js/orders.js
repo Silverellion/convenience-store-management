@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     loadRevenue();
 });
 
+function showToast2(message) { //This function is used to display message at the bottom right of the screen
+    const toastElement = document.getElementById("toastMessageOrders");
+    const toastBody = toastElement.querySelector(".toast-body");
+    toastBody.textContent = message;
+    const toast = new bootstrap.Toast(toastElement);
+    toast.show();
+}
+
 async function loadOrders() {
     try {
         const res = await fetch(`http://localhost:3000/api/orders`);
@@ -55,9 +63,9 @@ function deleteOrder(orderId) {
     .then(response => {
         if(response.ok) {
             loadOrders();
-            alert('Delete order successfully!');
+            showToast2("Order deleted successfully!");
         } else {
-            alert('fail to delete');
+            showToast2("Failed to delete order");
         }
     });
 }

@@ -19,8 +19,8 @@ async function fetchAndRenderProducts() {
     }
 }
 
-function showToast(message) { //This function is used to display message at the bottom right of the screen
-    const toastElement = document.getElementById("toastMessageProduct");
+function showToast1(message) { //This function is used to display message at the bottom right of the screen
+    const toastElement = document.getElementById("toastMessageProducts");
     const toastBody = toastElement.querySelector(".toast-body");
     toastBody.textContent = message;
     const toast = new bootstrap.Toast(toastElement);
@@ -163,9 +163,9 @@ function addProduct() {
                 const modal = bootstrap.Modal.getInstance(document.getElementById("modalProducts"));
                 modal.hide();
                 fetchAndRenderProducts();
-                showToast('Product added successfully!');
+                showToast1('Product added successfully!');
             } else {
-                showToast('Failed to add product.');
+                showToast1('Failed to add product.');
             }
         });
 }
@@ -208,9 +208,9 @@ function saveEditedProduct(productId) {
             const editModal = bootstrap.Modal.getInstance(document.getElementById("modalProductsEdit"));
             editModal.hide();
             fetchAndRenderProducts();
-            showToast('Product updated successfully!');
+            showToast1('Product updated successfully!');
         } else {
-            showToast("Failed to update product.");
+            showToast1("Failed to update product.");
         }
     });
 }
@@ -226,9 +226,9 @@ function deleteProducts(productId) {
         .then(response => {
             if (response.ok) {
                 fetchAndRenderProducts();
-                showToast('Product deleted successfully!');
+                showToast1('Product deleted successfully!');
             } else {
-                showToast('Failed to delete product');
+                showToast1('Failed to delete product');
             }
         });
 }
