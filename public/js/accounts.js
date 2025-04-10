@@ -71,7 +71,7 @@ function addAccount() {
             }
             return response.json();
         })
-        .then(data => {
+        .then(_data => {
             return fetch("http://localhost:3000/api/accounts", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -109,7 +109,7 @@ function showEditModal(accountId) {
             document.getElementById("editRole").value = account.role;
             const editModal = new bootstrap.Modal(document.getElementById("modalAccountEdit"));
             editModal.show();
-            document.getElementById("saveEditBtn").onclick = () => saveEditedAccount(accountId);
+            document.getElementById("saveEditBtnAccount").onclick = () => saveEditedAccount(accountId);
         });
 }
 
@@ -119,40 +119,22 @@ function saveEditedAccount(accountId) {
     const password = document.getElementById("editPassword").value.trim();
     const role = document.getElementById("editRole").value.trim();
     if (!employeeId || !username || !role) return alert("Employee ID, Username, and Role are required!");
-    
-    // First check if employee exists
-    fetch(`http://localhost:3000/api/employees/check/${employeeId}`)
-        .then(response => {
-            if (!response.ok) {
-                if (response.status === 404) {
-                    throw new Error("Employee ID does not exist. Please check the ID and try again.");
-                }
-                throw new Error("Error checking employee.");
-            }
-            return response.json();
-        })
-        .then(data => {
-            return fetch(`http://localhost:3000/api/accounts/${accountId}`, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ employeeId, username, password, role }),
-            });
-        })
-        .then(response => {
-            if (!response.ok) {
-                return response.json().then(data => {
-                    throw new Error(data.message || "Failed to update account");
-                });
-            }
+    fetch(`http://localhost:3000/api/accounts/${accountId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ employeeId, username, password, role }),
+    }).then(response => {
+        if (response.ok) {
             const editModal = bootstrap.Modal.getInstance(document.getElementById("modalAccountEdit"));
             editModal.hide();
             loadAccounts();
             showToast("Account updated successfully!");
-        })
-        .catch(error => {
-            alert(error.message);
-        });
+        } else {
+            alert("Failed to update account.");
+        }
+    });
 }
+
 function deleteAccount(accountId) {
     if (!confirm("Are you sure you want to delete this account?")) return;
     fetch(`http://localhost:3000/api/accounts/${accountId}`, { method: "DELETE" }).then(response => {
