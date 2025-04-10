@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     loadOrders();
     loadTotalSale();
+    loadRevenue();
 });
 
 async function loadOrders() {
@@ -109,3 +110,42 @@ function searchOrder() {
         row.style.display = matchesSearch ? "" : "none";
     });
 }
+
+function loadRevenue() {
+    fetch('http://localhost:3000/api/orders/revenue')
+        .then(response => response.json())
+        .then(data => {
+            const revenueList = document.getElementById('revenue-list');
+            if (!revenueList) return;
+
+            data.sort((a, b) => a.month.localeCompare(b.month));
+
+            revenueList.innerHTML = data.map(item => {
+                const formattedMonth = formatMonth(item.month);
+                const formattedRevenue = formatCurrency(item.totalRevenue);
+                return `
+                    <li class="list-group-item">
+                        <strong>${formattedMonth}</strong>
+                        <span class="float-end">${formattedRevenue}</span>
+                    </li>
+                `;
+            }).join('');
+        })
+        .catch(error => console.error('Error fetching revenue:', error));
+}
+
+// hàm định dạng tiền tẹ
+function formatCurrency(amount) {
+    return amount.toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+    });
+}
+
+// hàm định dạng lại ngày tháng
+function formatMonth(isoString) {
+    if (!isoString) return 'Không rõ';
+    const [year, month] = isoString.split('-');
+    return `Tháng ${parseInt(month)}, ${year}`;
+}
+

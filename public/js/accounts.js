@@ -74,7 +74,7 @@ function addAccount() {
             loadAccounts();
             showToast("Account added successfully!");
         } else {
-            showToast("Failed to add account.");
+            alert("Failed to add account.");
         }
     });
 }
@@ -110,7 +110,7 @@ function saveEditedAccount(accountId) {
             loadAccounts();
             showToast("Account updated successfully!");
         } else {
-            showToast("Failed to update account.");
+            alert("Failed to update account.");
         }
     });
 }
@@ -122,7 +122,7 @@ function deleteAccount(accountId) {
             loadAccounts();
             showToast("Account deleted successfully!");
         } else {
-            showToast("Failed to delete account.");
+            alert("Failed to delete account.");
         }
     });
 }

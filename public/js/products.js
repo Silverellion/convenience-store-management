@@ -2,14 +2,6 @@ let allProducts = []; // lưu toàn bộ sản phẩm để lọc lại
 
 document.addEventListener('DOMContentLoaded', fetchAndRenderProducts);
 
-function showToast(message) { //This function is used to display message at the bottom right of the screen
-    const toastElement = document.getElementById("toastMessage");
-    const toastBody = toastElement.querySelector(".toast-body");
-    toastBody.textContent = message;
-    const toast = new bootstrap.Toast(toastElement);
-    toast.show();
-}
-
 async function fetchAndRenderProducts() {
     try {
         const res = await fetch('http://localhost:3000/api/products');
@@ -25,6 +17,14 @@ async function fetchAndRenderProducts() {
     } catch (err) {
         console.error('Error fetching products:', err);
     }
+}
+
+function showToast(message) { //This function is used to display message at the bottom right of the screen
+    const toastElement = document.getElementById("toastMessage");
+    const toastBody = toastElement.querySelector(".toast-body");
+    toastBody.textContent = message;
+    const toast = new bootstrap.Toast(toastElement);
+    toast.show();
 }
 
 //Hien thi san pham
@@ -165,7 +165,7 @@ function addProduct() {
                 fetchAndRenderProducts();
                 showToast('Product added successfully!');
             } else {
-                showToast("Failed to add product.");
+                showToast('Failed to add product.');
             }
         });
 }
@@ -217,7 +217,7 @@ function saveEditedProduct(productId) {
 
 //xoa san pham
 function deleteProducts(productId) {
-    if (!confirm(`Are you sure you want to remove this product?`)) {
+    if (!confirm(`Are you sure you want to delete this account? ${productId}`)) {
         return;
     }
     fetch(`http://localhost:3000/api/products/${productId}`, {
@@ -235,7 +235,7 @@ function deleteProducts(productId) {
 
 // search sản phẩm (theo mã code của Tâm và sửa lại phù hợp với products)
 function searchProduct() {
-    const searchTerm = document.getElementById("searchProductText").value.toLowerCase();
+    const searchTerm = document.getElementById("searchProductText").value.toLowerCase().trim();
     const tableRows = document.querySelectorAll("#tableBodyProducts tr");
 
     // Hiển thị lại tất cả các dòng trước khi tìm
