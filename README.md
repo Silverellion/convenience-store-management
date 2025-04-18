@@ -1,1 +1,1 @@
-# StoreWebsite
+This project has been archived.
